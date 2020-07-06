@@ -1,24 +1,24 @@
 import Axios from 'axios'
 
 
-export const Authentification = async(username,password) => {
+export const Authentification = async(email,password) => {
   console.log("here starts")
-  /*const result2 = await Axios({
-    method: 'PUT',
-    url: 'HTTP://localhost:8000/login',
-    headers: {
-        'Content-Type': 'application/json',
-            },
-    data: {username,password},
-})*/
-  const result = await Axios.put(
-    "HTTP://localhost:8000/login" ,{username,password},{
-      headers: {
-        'Content-Type': 'application/json',
-      }
-    })
-  console.log(result)
-  return result
 
+    try {
+      const result = await Axios.put(
+        "http://localhost:8000/login" ,{email,password},{
+          headers: {
+            'Content-Type': 'application/json',
+          }
+        })
+        if (result.data === undefined){
+          return 0
+        }else{
+          return result.data
+        }
+      
+    } catch (error) {
+      console.error(error)
+    }
   
 }

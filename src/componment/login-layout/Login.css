@@ -135,3 +135,18 @@
 .ant-picker-input > input{
     font-size: 16px !important;
 }
+.big-warning{
+    top: 0;
+    text-align: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: rgba(0,0,0,0.9);
+    bottom: 0;
+    padding: 60px 0 0 0 ;
+   
+}
+.big-warning >h3{
+    color: #fff;
+}
