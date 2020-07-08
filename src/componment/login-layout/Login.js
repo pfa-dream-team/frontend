@@ -15,7 +15,7 @@ function Login({setUser ,user,cookies}) {
   const [authenticated , setAuthentificated] = useState(false);
   const [error , setError] = useState(false);
   const [accept , setAccept] = useState(false);
-  const [remember , setRemember] = useState(false);
+  const [remember , setRemember] = useState(true);
   const layout = {
     labelCol: { span: 24 },
     wrapperCol: { span: 24 },
@@ -104,7 +104,7 @@ function Login({setUser ,user,cookies}) {
             </Form.Item>
            </div>
            <div className="col-md-12 input-form">
-           <Form.Item {...tailLayout} name="remember" valuePropName="">
+           <Form.Item {...tailLayout} name="remember" valuePropName="checked">
             <Checkbox onChange={handleCheck} value={remember}>Remember me</Checkbox>
            </Form.Item>
            </div>

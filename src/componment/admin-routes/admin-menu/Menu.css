@@ -1,0 +1,42 @@
+.navbar {
+    justify-content: right;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 20px;
+    padding: 20px 50px;
+    -webkit-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    -moz-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
+    margin: 20px auto !important;
+}
+@media screen and (max-width: 995px)  {
+    .navbar{
+        padding: 20px 8px;
+    }
+}
+.nav-item a{
+    padding: 0 10px;
+    color: #000 ;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.nav-item:hover a{
+    color: #65C7F7 ;
+}
+.active{
+    color: #65C7F7 ;
+}
+.nav-item :after{
+    display: inline-block;
+    content: " ";
+    width: 1px;
+    height: 90%;
+    background-color: #000;
+    margin-left: 16px;
+    background-color: rgba(0, 0, 0, 0.1);
+    
+}
+.active a{
+    color: #65C7F7 !important;
+}

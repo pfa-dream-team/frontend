@@ -11,7 +11,6 @@ import {
   Route,
   useRouteMatch,
   Redirect,
-  BrowserRouter as Router,
   
 } from "react-router-dom"
 
@@ -34,19 +33,17 @@ function UserRoutes({setUser ,user,cookies}) {
         
         <Switch>
         <>
-        
-         <Route exact path={`${path}/cvs`}>
-           <ListCv />
-         </Route>
-       
-         <Route  exact path={`${path}/documents`}>
-           <ListDocument />
-         </Route>
-         <Route exact path={`${path}/`}>
+        <Route exact path={`${path}/`}>
             <Redirect to={`${path}/homepage`} />
         </Route>
         <Route  exact path={`${path}/homepage`}>
            <MainPage />
+         </Route>
+         <Route exact path={`${path}/cvs`}>
+           <ListCv />
+         </Route>
+         <Route  exact path={`${path}/documents`}>
+           <ListDocument />
          </Route>
         </>
        </Switch>
