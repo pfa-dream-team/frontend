@@ -1,6 +1,8 @@
 import React ,{useState,useRef} from 'react';
 import "./Login.css";
+import 'antd/dist/antd.css'; 
 import Signup from "../signup-layout/sign-up";
+import { Form, Input, Button, Checkbox } from 'antd';
 import {Authentification } from "../../services/authentification.service";
 
 
@@ -13,7 +15,14 @@ function Login({setUser ,user}) {
   const [authenticated , setAuthentificated] = useState(false);
   const [error , setError] = useState(false);
   const [accept , setAccept] = useState(false);
-
+  const layout = {
+    labelCol: { span: 24 },
+    wrapperCol: { span: 24 },
+  };
+  const tailLayout = {
+    wrapperCol: { offset: 1, span: 24 },
+  };
+  
 
 
 
@@ -70,17 +79,34 @@ function Login({setUser ,user}) {
          </div>
          <div className="content-caption">
            <div className="form row">
-             <div className="col-md-12 input-form">
-                 <input type="email" name="email" placeholder="→  Email" 
-                 value={email} onChange={handleEmail} required /> 
-             </div>
-             <div className="col-md-12 input-form">
-                 <input type="password" name="password" placeholder="→  Mot de passe"
-                  value={password} onChange={handlePassword} required /> 
-             </div>
-             <div className="col-md-12 input-form">
-               <button className="btn-form btn-2" onClick={Auth}>login</button>
-             </div>
+
+             <Form {...layout} name="basic" initialValues={{ remember: true }}       >
+           <div className="col-md-12 input-form">
+              <Form.Item   name="email"
+                 rules={[{ required: true, message: 'veuillez saisir votre email!' }]} >
+                <Input placeholder="→  Email" onChange={handleEmail} value={email}/>
+              </Form.Item>
+            </div>
+           <div className="col-md-12 input-form">
+           <Form.Item  name="password"
+                 rules={[{ required: true, message: 'veuillez saisir votre mot de passe!' }]}
+                >
+             <Input.Password placeholder="→  Mot de passe"  onChange={handlePassword} value={password}/>
+            </Form.Item>
+           </div>
+           <div className="col-md-12 input-form">
+           <Form.Item {...tailLayout} name="remember" valuePropName="checked">
+            <Checkbox>Remember me</Checkbox>
+           </Form.Item>
+           </div>
+           <div className="col-md-12 input-form">
+             <Form.Item {...tailLayout}>
+              <Button type="primary" htmlType="submit" onClick={Auth}>
+                 Submit
+              </Button>
+             </Form.Item>
+           </div>
+          </Form>
            </div>
          </div>
         <div className="footer-caption">
@@ -93,7 +119,7 @@ function Login({setUser ,user}) {
 
     ) :(
       <>
-      <Signup />
+      <Signup setUser={setUser} user={user}/>
       </>
     )}
     </>
@@ -112,6 +138,10 @@ function Login({setUser ,user}) {
 
      ) : (
         <>
+         
+
+          
+
         </>
      )
       }
