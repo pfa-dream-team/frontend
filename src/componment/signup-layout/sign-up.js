@@ -27,9 +27,7 @@ function Signup({setUser ,user}) {
     labelCol: { span: 24 },
     wrapperCol: { span: 24 },
   };
-  const tailLayout = {
-    wrapperCol: { offset: 1, span: 24 },
-  };
+ 
   const handleName = (e)=>{
     setName(e.target.value);
   }

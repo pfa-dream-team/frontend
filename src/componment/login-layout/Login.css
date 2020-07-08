@@ -196,10 +196,10 @@
 }
 .ant-input-affix-wrapper:focus , .ant-input-affix-wrapper-focused{
     
-    outline: none;
-    border: none !important;
 }
-
+.ant-input-affix-wrapper-focused{
+    border: none;
+}
 .ant-input-affix-wrapper{
     border: none !important;
 }

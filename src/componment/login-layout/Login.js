@@ -1,4 +1,4 @@
-import React ,{useState,useRef} from 'react';
+import React ,{useState,} from 'react';
 import "./Login.css";
 import 'antd/dist/antd.css'; 
 import Signup from "../signup-layout/sign-up";
@@ -8,13 +8,14 @@ import {Authentification } from "../../services/authentification.service";
 
 
 
-function Login({setUser ,user}) {
+function Login({setUser ,user,cookies}) {
   const [modeSignup, setModeSignup] = useState(false);
   const [email , setEmail] = useState("");
   const [password , setPassword] = useState("");
   const [authenticated , setAuthentificated] = useState(false);
   const [error , setError] = useState(false);
   const [accept , setAccept] = useState(false);
+  const [remember , setRemember] = useState(false);
   const layout = {
     labelCol: { span: 24 },
     wrapperCol: { span: 24 },
@@ -24,7 +25,7 @@ function Login({setUser ,user}) {
   };
   
 
-
+  
 
   //change hadelers
   const handleEmail = (e)=>{
@@ -33,18 +34,26 @@ function Login({setUser ,user}) {
   const handlePassword = (e)=>{
     setPassword(e.target.value);
   }
+  const handleCheck = (e) =>{
+      setRemember(e.target.checked)
+  }
   const Auth = async (e) => {
     const result = await Authentification(email , password)
-    console.log("result :" ,result)
+   // console.log("result :" ,result)
     if (result === undefined){
       setError(true)
+      cookies.remove("user")
     }else{
       
-      setUser(result)
-      setAuthentificated(true)
-      setError(false)
-      if (user.active === 1){
+      if (result.active === 1){
+        if (remember === true){
+          cookies.set("user",result,{ path: '/' })
+        }
+        setUser(result)
+        setAuthentificated(true)
+        setError(false)
         setAccept(true)
+        window.location.reload(false);
       }else{
         setAccept(false)
       }
@@ -80,7 +89,7 @@ function Login({setUser ,user}) {
          <div className="content-caption">
            <div className="form row">
 
-             <Form {...layout} name="basic" initialValues={{ remember: true }}       >
+          <Form {...layout} name="basic" initialValues={{ remember: true }}       >
            <div className="col-md-12 input-form">
               <Form.Item   name="email"
                  rules={[{ required: true, message: 'veuillez saisir votre email!' }]} >
@@ -95,8 +104,8 @@ function Login({setUser ,user}) {
             </Form.Item>
            </div>
            <div className="col-md-12 input-form">
-           <Form.Item {...tailLayout} name="remember" valuePropName="checked">
-            <Checkbox>Remember me</Checkbox>
+           <Form.Item {...tailLayout} name="remember" valuePropName="">
+            <Checkbox onChange={handleCheck} value={remember}>Remember me</Checkbox>
            </Form.Item>
            </div>
            <div className="col-md-12 input-form">
