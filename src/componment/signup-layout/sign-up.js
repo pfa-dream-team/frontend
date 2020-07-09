@@ -3,7 +3,7 @@ import "../login-layout/Login.css";
 import Login from "../login-layout/Login";
 import { DatePicker } from 'antd';
 import 'antd/dist/antd.css'; 
-import { Form, Input, Select } from 'antd';
+import { Form, Input, Select,  AutoComplete} from 'antd';
 import {SignUp } from "../../services/authentification.service";
 
 
@@ -152,13 +152,33 @@ function Signup({setUser ,user}) {
                 <Input.Password placeholder="→  Mot de passe"  onChange={handlePassword} value={password}/>
                 </Form.Item>
               </div>
+              <div className="col-md-12 input-form" >
+                <Form.Item name="confirm" dependencies={['password']} hasFeedback
+                   rules={[
+                       {
+                       required: true,
+                       message: 'Confirmer votre mot de passe!',
+                   },
+                  ({ getFieldValue }) => ({
+                      validator(rule, value) {
+                     if (!value || getFieldValue('password') === value) {
+                        return Promise.resolve();
+                       }
+                       return Promise.reject('Les deux mots de passe ne correspondent pas!');
+                    },
+                     }),
+                      ]}
+                        >
+                        <Input.Password  placeholder="→  Répéter la mot de passe"/>
+               </Form.Item>
+              </div>
               <div className="col-md-12 input-form">
                 <button className="btn-form btn-2" onClick={Sign}>submit</button>
               </div>
             </Form>
             </div>
           </div>
-         <div className="footer-caption">
+          <div className="footer-caption">
              <p> &nbsp; Ou &nbsp; </p>
              <button className="btn-form" onClick={()=>{setModelogin(true)}}>Se Connecter</button>
          </div>

@@ -47,7 +47,7 @@ function Login({setUser ,user,cookies}) {
       
       if (result.active === 1){
         if (remember === true){
-          cookies.set("user",result,{ path: '/' })
+          cookies.set("user",result,{ path: '/',  expires: 0  })
         }
         setUser(result)
         setAuthentificated(true)

@@ -1,9 +1,10 @@
-import React from 'react';
+import React,{useState} from 'react';
 import ListCv from "../user-routes/list-cv/List-Cv"
 import ListDocument from "../user-routes/list-documents/List-Document"
 import MainPage from "./admin-main-page/MainPage"
 import Menu from "./admin-menu/Menu"
 import "./AdminRoutes.css";
+import Login from "../login-layout/Login"
 
 
 import {
@@ -20,17 +21,22 @@ function AdminRoutes({setUser ,user,cookies}) {
   return (
     
     <>
-     <div className="pages-container">
+    {user === undefined ? (
+      <>
+      <Login setUser={setUser} user={user} cookies={cookies}/>
+      </>
+
+    ) : (
+      <>
+      <div className="pages-container">
        <div className="container">
          <div className="row navigation-menu">
-           <Menu/>
+           <Menu setUser={setUser} user={user} cookies={cookies}/>
          </div>
          <div className="content">
-         <h1>c'est la page d'acceuil admin {user.name}</h1>
           <div className="routes">
       
-        
-        <Switch>
+             <Switch>
         <>
         <Route exact path={`${path}/`}>
             <Redirect to={`${path}/homepage`} />
@@ -46,7 +52,6 @@ function AdminRoutes({setUser ,user,cookies}) {
          </Route>
         </>
        </Switch>
- 
    
           </div>
          </div>
@@ -55,6 +60,9 @@ function AdminRoutes({setUser ,user,cookies}) {
          </div>
        </div>
    </div>
+      </>
+    )}
+     
    </>
   );
 }

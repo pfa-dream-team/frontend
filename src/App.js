@@ -35,7 +35,7 @@ function App() {
         <>
           
           <Route  path="/admin">
-            <AdminRoutes setUser={setUser} user={user} cookies={cookies}/>
+            <AdminRoutes setUser={setUser} user={user} cookies={cookies} />
           </Route>
           <Route  path="/user">
             <UserRoutes setUser={setUser} user={user} cookies={cookies}/>

@@ -1,24 +1,37 @@
 .navbar {
-    justify-content: right;
-    width: 80%;
+    width: 90%;
     background-color: #fff;
     border-radius: 20px;
-    padding: 20px 50px;
+    padding: 15px 50px;
     -webkit-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
     -moz-box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
     box-shadow: 10px 10px 25px 8px rgba(0,0,0,0.05);
     margin: 20px auto !important;
 }
+.navbar::before{
+    display: inline-block;
+    content: " ";
+    height: 100%;
+    width: 10px;
+    background-color: #65C7F7 ;
+    border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px;
+    position : absolute;
+    left: 0;
+
+}
 @media screen and (max-width: 995px)  {
     .navbar{
         padding: 20px 8px;
+        width: 100%;
     }
+
 }
 .nav-item a{
     padding: 0 10px;
     color: #000 ;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: 400;
     cursor: pointer;
 }
 .nav-item:hover a{
@@ -27,16 +40,30 @@
 .active{
     color: #65C7F7 ;
 }
-.nav-item :after{
-    display: inline-block;
-    content: " ";
-    width: 1px;
-    height: 90%;
-    background-color: #000;
-    margin-left: 16px;
-    background-color: rgba(0, 0, 0, 0.1);
+.nav-item{
+   white-space: nowrap;
     
 }
 .active a{
+    color: #65C7F7 !important;
+}
+.navbar svg{
+    margin-top: -3px;
+    margin-right: 8px;
+}
+
+.navbar-brand>img{
+    width: 30%;
+}
+.user-interface-btn >button{
+    background-color: unset !important;
+    border: none;
+    padding: 0 10px;
+    color: #000;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+.user-interface-btn:hover >button{
     color: #65C7F7 !important;
 }
