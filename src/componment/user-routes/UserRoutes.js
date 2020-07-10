@@ -6,6 +6,7 @@ import Menu from "./user-menu/Menu"
 import "./UserRoutes.css";
 import Login from "../login-layout/Login"
 import CvDetails from "./cv-details/Cv-Details"
+import AddCv from "./add-cv/Add-Cv"
 
 
 
@@ -37,9 +38,7 @@ function UserRoutes({setUser ,user,cookies}) {
          </div>
          <div className="content">
           <div className="routes">
-      
-        
-              <Switch>
+             <Switch>
                    <>
                     <Route exact path={`${path}/`}>
                        <Redirect to={`${path}/homepage`} />
@@ -48,18 +47,19 @@ function UserRoutes({setUser ,user,cookies}) {
                        <MainPage />
                    </Route>
                    <Route exact path={`${path}/cvs`}>
-                       <ListCv />
+                       <ListCv setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
                    <Route  exact path={`${path}/documents`}>
-                     <ListDocument />
+                     <ListDocument setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
-                   <Route  exact path={`${path}/cv/1`}>
+                   <Route  exact path={`${path}/cv/1`} setUser={setUser} user={user} cookies={cookies}>
                      <CvDetails/>
+                   </Route>
+                   <Route  exact path={`${path}/add-cv/1`} setUser={setUser} user={user} cookies={cookies}>
+                     <AddCv setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
                     </>
                </Switch>
- 
-   
           </div>
          </div>
          <div className="footer">

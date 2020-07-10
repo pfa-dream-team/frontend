@@ -2,18 +2,22 @@
 
 }
 .sub-page-title{
+    width: 100%;
     font-size: 20px;
     font-weight: 500;
     text-transform: uppercase;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
-.sub-page-title::after{
+.sub-page-title>p::after{
     display: block;
     content: " ";
     height: 3px;
     width: 60px;
     background-color: #65C7F7;
-    margin-top: -15px;
 
+    
     
     
 }

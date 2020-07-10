@@ -36,10 +36,10 @@ function Menu({setUser ,user,cookies}) {
             <>
             
              <Link 
-             to={location => ({ ...location, pathname: "/admin/homepage" })} 
+             to={location => ({ ...location, pathname: "/user/homepage" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
-            pathname.match("/admin/homepage") 
+            pathname.match("/user/homepage") 
           }>
                <AiOutlineHome/> Accueil
              </Link>{" "}
@@ -48,10 +48,10 @@ function Menu({setUser ,user,cookies}) {
           <li className="nav-item">
             <>
              <Link 
-             to={location => ({ ...location, pathname: "/admin/cvs" })} 
+             to={location => ({ ...location, pathname: "/user/cvs" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
-            pathname.match("/admin/cvs") 
+            pathname.match("/user/cvs") 
           }
              >
               <AiOutlineFileProtect/>
@@ -62,10 +62,10 @@ function Menu({setUser ,user,cookies}) {
            <li className="nav-item">
              <>
              <Link 
-             to={location => ({ ...location, pathname: "/admin/documents" })} 
+             to={location => ({ ...location, pathname: "/user/documents" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
-            pathname.match("/admin/documents") 
+            pathname.match("/user/documents") 
           }
              >
                 <AiOutlineFileText/>
@@ -76,10 +76,10 @@ function Menu({setUser ,user,cookies}) {
            <li className="nav-item">
              <>
              <Link 
-             to={location => ({ ...location, pathname: "/admin/documents" })} 
+             to={location => ({ ...location, pathname: "/user/documents" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
-            pathname.match("/admin/documents") 
+            pathname.match("/user/documents") 
           }
              >
                 <BsPerson/>

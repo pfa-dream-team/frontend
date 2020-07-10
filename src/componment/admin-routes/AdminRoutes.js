@@ -42,13 +42,13 @@ function AdminRoutes({setUser ,user,cookies}) {
             <Redirect to={`${path}/homepage`} />
         </Route>
         <Route  exact path={`${path}/homepage`}>
-           <MainPage />
+           <MainPage  setUser={setUser} user={user} cookies={cookies}/>
          </Route>
          <Route exact path={`${path}/cvs`}>
-           <ListCv />
+           <ListCv setUser={setUser} user={user} cookies={cookies}/>
          </Route>
          <Route  exact path={`${path}/documents`}>
-           <ListDocument />
+           <ListDocument setUser={setUser} user={user} cookies={cookies}/>
          </Route>
         </>
        </Switch>
