@@ -2,6 +2,8 @@ import React from 'react'
 import {  Link} from "react-router-dom"
 import "./Menu.css"
 import { BsXCircle} from "react-icons/bs";
+import { FaUsers } from "react-icons/fa";
+
 import
  { AiOutlineHome
   ,AiOutlineAlignRight,
@@ -75,8 +77,22 @@ function Menu({setUser ,user,cookies}) {
                 Liste des documents
              </Link>{" "}
             </>
-           </li>   
-           <li className="user-interface-btn nav-item dropdown">
+           </li> 
+           <li className="nav-item">
+             <>
+             <Link 
+             to={location => ({ ...location, pathname: "/admin/users" })} 
+             activeClassName="active"
+             isActive={(_, { pathname }) =>
+            pathname.match("/admin/users") 
+          }
+             >
+                <FaUsers/>
+                Liste des Utilisateurs
+             </Link>{" "}
+            </>
+           </li>     
+           <li className="user-interface-btn nav-item">
              <button onClick={disconnect}>
                
                <BsXCircle/>

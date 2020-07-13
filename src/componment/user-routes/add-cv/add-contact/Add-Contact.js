@@ -1,6 +1,7 @@
 import React,{useState}from 'react';
 import "../Add-Cv.css"
 import "../../cv-details/Cv-Details.css"
+import "../../cv-details/Cv-Details.css"
 import { Form, Input, Button, Checkbox } from 'antd';
 
 
@@ -39,18 +40,61 @@ function AddContact({setUser ,user,cookies,cv,setCv}) {
     }
     const handleFacebook = (e)=>{
         setFacebook(e.target.value);
-    }    
+    } 
+    const addContact = () => {
+
+    }   
   
   return (
             <>
+             <div className="information row">
+                <div className="col-md-12">
+                   <div className="title">
+                    <h3>Ajouter vos Contact</h3>
+                   </div>
+                </div>
               <Form {...layout} name="basic" >
+               <div className="form row">
                  <div className="col-md-6 input-form">
-                    <Form.Item   name="email"
+                    <Form.Item   name="position"
                       rules={[{ required: true, message: 'veuillez saisir votre poste' }]} >
                       <Input placeholder="→  Poste" onChange={handlePosition} value={position}/>
                     </Form.Item>
                  </div>
-              </Form>
+                 <div className="col-md-6 input-form">
+                    <Form.Item   name="address"
+                      rules={[{ required: true, message: 'veuillez saisir votre addresse' }]} >
+                      <Input placeholder="→  Addresse" onChange={handleAddress} value={address}/>
+                    </Form.Item>
+                 </div>
+                 <div className="col-md-6 input-form">
+                    <Form.Item   name="tel"
+                      rules={[{ required: true, message: 'veuillez saisir votre tel' }]} >
+                      <Input placeholder="→  Num Télephone" onChange={handleTel} value={tel} type="number"/>
+                    </Form.Item>
+                 </div>
+                 <div className="col-md-6 input-form">
+                    <Form.Item   name="linkedIn"
+                      rules={[{ required: true, message: 'veuillez saisir votre lien LinkedIn' }]} >
+                      <Input placeholder="→  Lien linkedIn" onChange={handleLinkedIn} value={linkedIn}/>
+                    </Form.Item>
+                 </div>
+                 <div className="col-md-6 input-form">
+                    <Form.Item   name="facebook"
+                      rules={[{ required: true, message: 'veuillez saisir votre lien Facebook' }]} >
+                      <Input placeholder="→  Lien Facebook" onChange={handleFacebook} value={facebook}/>
+                    </Form.Item>
+                 </div>
+                 <div className="col-md-6"> 
+                   <Form.Item {...tailLayout}>
+                      <Button type="primary" htmlType="submit" onClick={addContact}>
+                          Confirmer
+                      </Button>
+                    </Form.Item>
+                 </div>
+               </div>
+             </Form>
+              </div>
             </>
              
    );

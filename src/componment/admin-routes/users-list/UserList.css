@@ -1,0 +1,22 @@
+.loading{
+    margin: 25px auto;
+    text-align: center;
+}
+.loading .anticon svg{
+    font-size: 55px;
+}
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+.error{
+    text-align: center;
+    margin: 25px auto;
+    font-size: 16px;
+
+}
+.error>img{
+    width: 15%;
+}

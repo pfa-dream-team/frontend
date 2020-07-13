@@ -3,7 +3,8 @@ import ListCv from "../user-routes/list-cv/List-Cv"
 import ListDocument from "../user-routes/list-documents/List-Document"
 import MainPage from "./admin-main-page/MainPage"
 import Menu from "./admin-menu/Menu"
-import "./AdminRoutes.css";
+import UsersList from "./users-list/UsersList"
+import "./AdminRoutes.css"
 import Login from "../login-layout/Login"
 
 
@@ -49,6 +50,9 @@ function AdminRoutes({setUser ,user,cookies}) {
          </Route>
          <Route  exact path={`${path}/documents`}>
            <ListDocument setUser={setUser} user={user} cookies={cookies}/>
+         </Route>
+         <Route  exact path={`${path}/users`}>
+           <UsersList setUser={setUser} user={user} cookies={cookies}/>
          </Route>
         </>
        </Switch>

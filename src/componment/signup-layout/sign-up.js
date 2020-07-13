@@ -132,10 +132,10 @@ function Signup({setUser ,user}) {
                    rules={[{ required: true, message: 'veuillez saisir votre niveau' }]}>
                     <Select onChange={handleGrade} value={grade} defaultValue="default">
                        <Select.Option value="default" disabled>→  &nbsp;Niveau d'étude</Select.Option>
-                       <Select.Option value="0">Ancien étudiant</Select.Option>
-                       <Select.Option value="1">Licence</Select.Option>
-                       <Select.Option value="2">Master</Select.Option>
-                       <Select.Option value="3">Cycle ingénieur</Select.Option>
+                       <Select.Option value="Ancien étudiant">Ancien étudiant</Select.Option>
+                       <Select.Option value="Licence">Licence</Select.Option>
+                       <Select.Option value="Master">Master</Select.Option>
+                       <Select.Option value="Cycle ingénieur">Cycle ingénieur</Select.Option>
                     </Select>
                 </Form.Item>
               </div>

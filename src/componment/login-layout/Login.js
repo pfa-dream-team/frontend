@@ -68,7 +68,7 @@ function Login({setUser ,user,cookies}) {
       <>
        <div className="login-container">
          <div className="header-caption">
-           {!error ? (
+           {error ? (
              <>
             <div className="login-icon">
              <img src={process.env.PUBLIC_URL + '/imgs/logo.png'} alt="login img"/>

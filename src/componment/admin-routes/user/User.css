@@ -1,0 +1,31 @@
+.action button{
+    background-color: #fff;
+    text-align: center;
+    border-radius: 5px;
+    padding: 8px 16px;
+
+}
+.edit {
+    border: 1px solid #5EB6DD;
+    color: #5EB6DD;
+}
+.activate{
+    color: #8FCF3C;
+    border: 1px solid #8FCF3C;
+}
+.banish{
+    color: #E8CC06;
+    border: 1px solid #E8CC06;
+}
+.delete{
+    color: #C9001A;
+    border: 1px solid #C9001A;
+}
+.action button:hover,.action button:focus{
+    outline: none;
+    padding: 9px 17px;
+
+}
+.col{
+    margin: 1px 8px;
+}
