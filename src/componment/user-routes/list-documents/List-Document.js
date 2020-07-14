@@ -1,6 +1,7 @@
 import React,{useState}from 'react';
-import DocumentLoading from "../document/Document-loading"
 import Document from "../document/Document"
+import "./List-Document.css"
+import { LoadingOutlined } from '@ant-design/icons'
 
 
 
@@ -17,8 +18,10 @@ function ListDocument({setUser ,user,cookies}) {
  
         </div>
         <div className="block-content-list row">
-          {!loading ? (<>
-           <DocumentLoading/>  <DocumentLoading/>  <DocumentLoading/> 
+          {loading ? (<>
+            <div className="loading" >
+               <LoadingOutlined />
+             </div>
           </>) : (<>
            <Document/> <Document/> <Document/>   
           </>)}

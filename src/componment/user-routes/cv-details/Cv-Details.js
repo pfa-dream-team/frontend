@@ -8,18 +8,18 @@ import Skills from "./cv-fields/Skills"
 
 
 
-function CvDetails() {
+function CvDetails({user,cv}) {
   return (
     
    <>
      <div className="cv-detailed col-md-12" >
         <div className="cv-header">
-          <h3>Amani ben farhat</h3>
-          <p>Éléve ingénieur en informatique et multimedia</p>
+            <h3>{user.name}  {user.last_name}</h3>
+            <p>{cv.position}</p>
           <span className="break"></span>
         </div>
         <div className="cv-content">
-        <Contact/>
+       
         <Education/>
         <Experience/>
         </div>

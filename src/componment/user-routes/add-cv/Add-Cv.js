@@ -31,7 +31,7 @@ function AddCv({setUser ,user,cookies}) {
           <div className="cv-content">
              {cv !== 1 ? (
                   <>
-                    <AddContact setUser={setUser} user={user} cookies={cookies} cv={cv} setCv={setCv}/>
+                  <AddContact setUser={setUser} user={user} cookies={cookies} cv={cv} setCv={setCv}/>
                   </>
               ) : (<>
                  <Contact user={user} cookies={cookies} cv={cv}/>

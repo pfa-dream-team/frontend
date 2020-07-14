@@ -1,17 +1,18 @@
 import React from 'react';
 import "./Cv.css"
 import {  Card, Avatar } from 'antd';
-import { Link} from "react-router-dom"
+import { NavLink} from "react-router-dom"
 
 
-function Cv({setUser ,user,cookies,cv}) {
+function Cv({cv,user}) {
   const { Meta } = Card;
+  const id = user._id
   return (
     
    <>
      <div className="cv col-md-4" >
-     <Link to={ "/user/cv/1" } >
-     <Card >
+     <NavLink to={ '/user/cv/'+id } user={user} cv={cv}>
+       <Card >
           <Meta
             avatar={
               <Avatar src={process.env.PUBLIC_URL + '/imgs/user.png'} />
@@ -19,11 +20,8 @@ function Cv({setUser ,user,cookies,cv}) {
             title="Card title"
             description="This is the description"
           />
-      </Card>
-              
-      </Link>
-            
-     
+       </Card>
+      </NavLink>
      </div>
    </>
   );

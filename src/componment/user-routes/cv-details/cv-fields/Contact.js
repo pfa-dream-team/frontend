@@ -5,7 +5,7 @@ import { MdLocationOn } from "react-icons/md";
 import { FaPhoneAlt,FaLinkedin,FaFacebook } from "react-icons/fa";
 
 
-function Contact() {
+function Contact({user,cookies,cv}) {
   return (
     
    <>
@@ -20,7 +20,7 @@ function Contact() {
                     <BsFillEnvelopeFill/>
                   </div>
                   <div className="description">
-                     <p>benfarhatamani@gmail.com</p>
+                      <p>{cv.email}</p>
                   </div>
                 </div>
                 <div className="col-md-4 info">
@@ -28,7 +28,7 @@ function Contact() {
                     <MdLocationOn/>
                   </div>
                   <div className="description">
-                     <p>Rue Dawha,ben arous, 2097</p>
+                    <p>{cv.address}</p>
                   </div>
                 </div>
                 <div className="col-md-4 info">
@@ -36,7 +36,7 @@ function Contact() {
                     <FaPhoneAlt/>
                   </div>
                   <div className="description">
-                     <p>(+216) 23 884 306</p>
+                      <p>(+216) {cv.tel}</p>
                   </div>
                 </div>
                 <div className="col-md-4 info">
@@ -44,7 +44,7 @@ function Contact() {
                     <FaLinkedin/>
                   </div>
                   <div className="description">
-                     <p>https://www.linkedin.com/in/amani-bf/</p>
+                      <p>{cv.linkedin}</p>
                   </div>
                 </div>
                 <div className="col-md-4 info">
@@ -52,7 +52,7 @@ function Contact() {
                     <FaFacebook/>
                   </div>
                   <div className="description">
-                     <p>https://www.facebook.com/amani.bf/</p>
+                     <p>{cv.facebook}</p>
                   </div>
                 </div>
           </div>

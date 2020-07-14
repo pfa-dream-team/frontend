@@ -3,7 +3,7 @@ import "../Add-Cv.css"
 import "../../cv-details/Cv-Details.css"
 import "../../cv-details/Cv-Details.css"
 import { Form, Input, Button, Checkbox } from 'antd';
-
+import {AddCv} from "../../../../services/cv.service"
 
 
 
@@ -13,8 +13,9 @@ function AddContact({setUser ,user,cookies,cv,setCv}) {
     const [email,setEmail] = useState("");
     const [address,setAddress] = useState("");
     const [tel,setTel] = useState("");
-    const [linkedIn,setLinkedIn] = useState("");
+    const [linkedin,setLinkedIn] = useState("");
     const [facebook,setFacebook] = useState("");
+    const [user_id,setUserId] = useState(user._id)
     const layout = {
         labelCol: { span: 24 },
         wrapperCol: { span: 24 },
@@ -41,8 +42,10 @@ function AddContact({setUser ,user,cookies,cv,setCv}) {
     const handleFacebook = (e)=>{
         setFacebook(e.target.value);
     } 
-    const addContact = () => {
-
+    const addContact = async (user_id,address,tel,linkedin,facebook) => {
+      const result = await AddCv(user_id,address,tel,linkedin,facebook)
+      cookies.set("user",result,{ path: '/',  expires: 0  })
+      setCv(result.cv)
     }   
   
   return (
@@ -76,7 +79,7 @@ function AddContact({setUser ,user,cookies,cv,setCv}) {
                  <div className="col-md-6 input-form">
                     <Form.Item   name="linkedIn"
                       rules={[{ required: true, message: 'veuillez saisir votre lien LinkedIn' }]} >
-                      <Input placeholder="→  Lien linkedIn" onChange={handleLinkedIn} value={linkedIn}/>
+                      <Input placeholder="→  Lien linkedIn" onChange={handleLinkedIn} value={linkedin}/>
                     </Form.Item>
                  </div>
                  <div className="col-md-6 input-form">
@@ -87,7 +90,7 @@ function AddContact({setUser ,user,cookies,cv,setCv}) {
                  </div>
                  <div className="col-md-6"> 
                    <Form.Item {...tailLayout}>
-                      <Button type="primary" htmlType="submit" onClick={addContact}>
+                      <Button type="primary" htmlType="submit" onClick={()=>addContact(user_id,address,tel,linkedin,facebook)}>
                           Confirmer
                       </Button>
                     </Form.Item>

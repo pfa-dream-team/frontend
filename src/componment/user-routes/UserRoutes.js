@@ -52,10 +52,10 @@ function UserRoutes({setUser ,user,cookies}) {
                    <Route  exact path={`${path}/documents`}>
                      <ListDocument setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
-                   <Route  exact path={`${path}/cv/1`} setUser={setUser} user={user} cookies={cookies}>
-                     <CvDetails/>
+                   <Route  exact path={`${path}/cv/:user_id`} setUser={setUser} user={user} cookies={cookies}>
+                     <CvDetails user={user}/>
                    </Route>
-                   <Route  exact path={`${path}/add-cv/1`} setUser={setUser} user={user} cookies={cookies}>
+                   <Route  exact path={`${path}/add-cv/:user_id`} setUser={setUser} user={user} cookies={cookies}>
                      <AddCv setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
                     </>
@@ -63,7 +63,6 @@ function UserRoutes({setUser ,user,cookies}) {
           </div>
          </div>
          <div className="footer">
-
          </div>
        </div>
    </div>

@@ -13,7 +13,7 @@ function App() {
   //cookies.remove("user")
  // const userconnected = cookies.get("user")
   const [user, setUser] = useState(cookies.get("user"))
- // console.log("user connected",user)
+ console.log("user connected",user)
 
   
   

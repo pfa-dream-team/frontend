@@ -1,5 +1,5 @@
 import React from 'react';
-import {  Link} from "react-router-dom"
+import {  NavLink} from "react-router-dom"
 
 import { BsXCircle ,BsPerson } from "react-icons/bs";
 import
@@ -27,7 +27,7 @@ function Menu({setUser ,user,cookies}) {
     <nav className="navbar navbar-expand-lg navbar-light ">
       <a className="navbar-brand" href="#"><img src={process.env.PUBLIC_URL + '/imgs/logo.png'} alt="login img"/></a>
        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-             <span class=""><AiOutlineAlignRight/></span>
+             <span ><AiOutlineAlignRight/></span>
        </button>
 
        <div className="collapse navbar-collapse" id="navbarSupportedContent">
@@ -35,19 +35,19 @@ function Menu({setUser ,user,cookies}) {
           <li className="nav-item active">
             <>
             
-             <Link 
+             <NavLink
              to={location => ({ ...location, pathname: "/user/homepage" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
             pathname.match("/user/homepage") 
           }>
                <AiOutlineHome/> Accueil
-             </Link>{" "}
+             </NavLink>{" "}
             </>
           </li>
           <li className="nav-item">
             <>
-             <Link 
+             <NavLink 
              to={location => ({ ...location, pathname: "/user/cvs" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
@@ -56,12 +56,12 @@ function Menu({setUser ,user,cookies}) {
              >
               <AiOutlineFileProtect/>
                 Liste des cv
-             </Link>{" "}
+             </NavLink>{" "}
             </>
           </li>   
            <li className="nav-item">
              <>
-             <Link 
+             <NavLink 
              to={location => ({ ...location, pathname: "/user/documents" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
@@ -70,12 +70,12 @@ function Menu({setUser ,user,cookies}) {
              >
                 <AiOutlineFileText/>
                 Liste des documents
-             </Link>{" "}
+             </NavLink>{" "}
             </>
            </li>
            <li className="nav-item">
              <>
-             <Link 
+             <NavLink 
              to={location => ({ ...location, pathname: "/user/documents" })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
@@ -84,7 +84,7 @@ function Menu({setUser ,user,cookies}) {
              >
                 <BsPerson/>
                 Profile
-             </Link>{" "}
+             </NavLink>{" "}
             </>
            </li>
            <li className="user-interface-btn nav-item dropdown">
