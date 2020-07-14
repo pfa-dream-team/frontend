@@ -2,7 +2,7 @@ import React,{useState,useEffect}from 'react';
 import "./UserList.css"
 import User from "../user/User"
 import { LoadingOutlined } from '@ant-design/icons';
-import {fetchUsers } from "../../../services/users.service"
+import {fetchUsers,EditUser,DeleteUser,ActivateUser } from "../../../services/users.service"
 
 
 
@@ -10,6 +10,8 @@ function UsersList({setUser ,user,cookies}) {
   const [loading , setLoading] = useState(false)
   const [error, setError]=useState("")
   const [users, setUsers] = useState([])
+
+
   useEffect(() => {
     const fetchData = async () => {
       try{
@@ -27,6 +29,7 @@ function UsersList({setUser ,user,cookies}) {
 
     fetchData()
   }, [])
+
 
   
   return (
@@ -56,27 +59,16 @@ function UsersList({setUser ,user,cookies}) {
               </>
               ) : (
               <>
-                <div class="table-responsive">
-                  <table class="table">
-                    <thead>
-                      <tr>
-                       <th scope="col">Nom</th>
-                       <th scope="col">Prénom</th>
-                       <th scope="col">Num inscription</th>
-                       <th scope="col">Niveau</th>
-                       <th scope="col">Email</th>
-                       <th scope="col">Date de naissance</th>
-                       <th scope="col">Role</th>
-                       <th scope="col">Action</th>
-                      </tr>
-                      </thead>
-                     <tbody>
-                     {users.map(user => (
-                      <User user={user}/>
-                      ))}
-                     </tbody>
+                <div class="row">
                 
-                    </table>
+                     <>
+                        {users.map(user => (
+                          <User user={user} edit={EditUser} setUsers={setUsers} DeleteUser={DeleteUser} ActivateUser={ActivateUser}/>
+                       ))}
+                          
+                      </>
+                      
+                    
                   </div>          
               </>
               )}

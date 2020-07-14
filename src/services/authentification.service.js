@@ -2,7 +2,6 @@ import Axios from 'axios'
 
 
 export const Authentification = async(email,password) => {
-  console.log("here starts")
 
     try {
       const result = await Axios.put(
@@ -14,6 +13,7 @@ export const Authentification = async(email,password) => {
         if (result.data === undefined){
           return 0
         }else{
+          console.log("here starts :" ,result.data)
           return result.data
         }
       

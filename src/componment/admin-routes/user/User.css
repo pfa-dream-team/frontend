@@ -29,3 +29,14 @@
 .col{
     margin: 1px 8px;
 }
+.list{
+    margin-top: 16px;
+    list-style: circle;
+}
+.ant-form{
+    width: 99% !important;
+    margin-top: 16px !important;
+}
+.ant-checkbox-wrapper {
+    padding-top: 3px !important;
+}

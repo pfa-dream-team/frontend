@@ -39,22 +39,21 @@ function Login({setUser ,user,cookies}) {
   }
   const Auth = async (e) => {
     const result = await Authentification(email , password)
-   // console.log("result :" ,result)
+    console.log("result :" ,result)
     if (result === undefined){
       setError(true)
-      cookies.remove("user")
+      cookies.remove("user",{path: '/'})
     }else{
       
-      if (result.active === 1){
-        if (remember === true){
-          cookies.set("user",result,{ path: '/',  expires: 0  })
-        }
+      if (result.active ){
+        cookies.set("user",result,{ path: '/',  expires: 0  })
         setUser(result)
         setAuthentificated(true)
         setError(false)
         setAccept(true)
         window.location.reload(false);
       }else{
+        setUser(result)
         setAccept(false)
       }
     }
@@ -62,13 +61,13 @@ function Login({setUser ,user,cookies}) {
  
   return (
     <>
-    {!authenticated ? (
+  {!authenticated ? (
       <>
     {!modeSignup ? (
       <>
        <div className="login-container">
          <div className="header-caption">
-           {error ? (
+           {!error ? (
              <>
             <div className="login-icon">
              <img src={process.env.PUBLIC_URL + '/imgs/logo.png'} alt="login img"/>
@@ -124,7 +123,6 @@ function Login({setUser ,user,cookies}) {
         </div>
        </div>
     </>
-    
 
     ) :(
       <>
@@ -135,27 +133,7 @@ function Login({setUser ,user,cookies}) {
     
     ):( 
     <>
-     {!accept ? (
-       <>
-        <div className="big-warning">
-        <div className="login-icon">
-            <img src={process.env.PUBLIC_URL + '/imgs/error.png'} alt="login img"/>
-        </div>
-          <h3>Votre compte est n'est pas encore active</h3>
-        </div>
-       </>
-
-     ) : (
-        <>
-         
-
-          
-
-        </>
-     )
-      }
-
-      
+    
     </>
     )}
     </>

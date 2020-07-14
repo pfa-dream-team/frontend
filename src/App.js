@@ -13,7 +13,7 @@ function App() {
   //cookies.remove("user")
  // const userconnected = cookies.get("user")
   const [user, setUser] = useState(cookies.get("user"))
-  console.log("user connected",user)
+ // console.log("user connected",user)
 
   
   
@@ -45,28 +45,48 @@ function App() {
         </Switch>
        
       </Router>
-    <Router>
+   
       <>
       {user === undefined ? (   
-      <Redirect to={'/login'} setUser={setUser} user={user} cookies={cookies}/>
+         <Router>
+            <Redirect to={'/login'} setUser={setUser} user={user} cookies={cookies}/>
+         </Router>
 
       ) :(
         <>
-       
+        {user.active ? (
+        <>
          {user.role === "user" ?
-         (
+             (
            <>
+           <Router>
             <Redirect to={'/user/'} setUser={setUser} user={user} cookies={cookies}/>
+            </Router>
            </>
-         ) : (
+             ) : (
            <>
+            <Router>
             <Redirect to={'/admin/'} setUser={setUser} user={user} cookies={cookies}/>
+            </Router>
            </>
-         )}
+            )}
+        </>
+        ) : (
+      
+        <div className="big-warning">
+        <div className="login-icon">
+            <img src={process.env.PUBLIC_URL + '/imgs/error.png'} alt="login img"/>
+        </div>
+          <h3>Votre compte est n'est pas encore active</h3>
+        </div>
+      
+           
+       )}
+       
+        
         </>
       )}
       </>
-      </Router>
     </div>
   );
 }

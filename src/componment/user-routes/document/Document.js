@@ -9,7 +9,7 @@ function Cv({setUser ,user,cookies,cv}) {
     
    <>
      <div className="cv col-md-4" >
-     <a href="https://www.facebook.com/" target="_blank">
+     <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
      <Card >
           <Meta
             avatar={
