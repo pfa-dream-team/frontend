@@ -10,10 +10,10 @@ import AdminRoutes from "./componment/admin-routes/AdminRoutes"
 
 function App() {
   const cookies = new Cookies()
-  //cookies.remove("user")
+   //cookies.remove("cv",{ path: '/' })
  // const userconnected = cookies.get("user")
   const [user, setUser] = useState(cookies.get("user"))
- console.log("user connected",user)
+  console.log("user connected",user)
 
   
   

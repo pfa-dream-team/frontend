@@ -38,11 +38,11 @@ function ListCv({setUser ,user,cookies}) {
         <div className="sub-page-title">
           <p>Liste des cv</p>
           <>
-          {user.role === "user" && user.cv === null ? (
+          {user.role === "user" ? (
             <>
             <Link 
              to={location => ({ ...location, pathname: "/user/add-cv/"+user_id })} > 
-                Ajouter un cv 
+                Mon Cv 
                
              </Link>{" "}
             </>

@@ -14,7 +14,7 @@ function Cv({cv,user}) {
     
    <>
      
-     <div className="cv col-md-4" >
+     <div className="cv col-md-6 col-md-4" >
      <NavLink to={ '/user/cvs/'+id } user={user} cv={cv}>
        <Card >
           <Meta

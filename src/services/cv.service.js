@@ -26,3 +26,13 @@ export const FetchCv = async (cv_id) => {
       
     
   }  
+
+export const AddEducation = async (cv_id,diploma,institut,start,end) => {
+    console.log("here starts")
+    const result = await Axios.post(
+      "HTTP://localhost:8000/education/addEducation",{cv_id,diploma,institut,start,end}
+    )
+      console.log("here ends" ,result.data)
+      return result.data
+  
+}

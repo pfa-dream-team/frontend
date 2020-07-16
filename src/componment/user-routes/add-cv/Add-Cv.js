@@ -28,14 +28,8 @@ function AddCv({setUser ,user,cookies}) {
           </div>
           <div className="cv-content">
             <AddContact setUser={setUser} user={user} cookies={cookies}/>
-            {user.cv === null ? (
-            <>
             <AddEducation setUser={setUser} user={user} cookies={cookies}/>
-            </>
-            ):(
-            <>
-            </>
-            )}
+             
           </div>
           <div className="cv-footer">
          

@@ -21,7 +21,6 @@ function AddContact({setUser ,user,cookies}) {
     const [facebook,setFacebook] = useState("");
     const [user_id,setUserId] = useState(user._id)
     const [cv,setCv] = useState(user.cv)
-    const [loading , setLoading] = useState(true)
 
     const layout = {
         labelCol: { span: 24 },
@@ -50,11 +49,10 @@ function AddContact({setUser ,user,cookies}) {
         setFacebook(e.target.value);
     } 
     const addContact = async (user_id,address,tel,linkedin,facebook,position) => {
-      setLoading(true)
       const result = await AddCv(user_id,address,tel,linkedin,facebook,position)
       cookies.set("user",result,{ path: '/',  expires: 0  })
+      setUser(result)
       setCv(result.cv)
-      setLoading(false)
     }   
   
   return (
@@ -111,14 +109,8 @@ function AddContact({setUser ,user,cookies}) {
               
                     </>
                 ):(
-               <>
-                {loading ? (
-                <>
-                  <div className="loading" >
-                    <LoadingOutlined />
-                   </div>
-                </>
-              ) : (
+              
+               
                 <>
                 <div className="col-md-12">
                    <div className="title">
@@ -166,8 +158,7 @@ function AddContact({setUser ,user,cookies}) {
                   </div>
                 </div>
                 </>
-                )}
-               </>
+               
               )}
               </div>
             </>
