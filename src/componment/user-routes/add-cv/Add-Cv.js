@@ -10,8 +10,6 @@ import {  PlusOutlined } from '@ant-design/icons';
 
 
 function AddCv({setUser ,user,cookies}) {
-    const  [cv , setCv] = useState("1")
-    const  [education , setEducation] = useState("1")
     const  [showEductaionFrom ,setShowEducationFrom] = useState(true);
     const  [MoreEductaion ,setMoreEducation] = useState(true);
 
@@ -29,43 +27,15 @@ function AddCv({setUser ,user,cookies}) {
             <span className="break"></span>
           </div>
           <div className="cv-content">
-             {cv !== 1 ? (
-                  <>
-                  <AddContact setUser={setUser} user={user} cookies={cookies} cv={cv} setCv={setCv}/>
-                  </>
-              ) : (<>
-                 <Contact user={user} cookies={cookies} cv={cv}/>
-              </>
-              )}
-              {showEductaionFrom ? (
-                <>
-                  {education == 1 ? (
-                  <>
-                    <AddEducation setUser={setUser} user={user} cookies={cookies} cv={cv} setCv={setCv}/>
-                    
-                  </>
-              ) : (
-              <>
-                 <Education user={user} cookies={cookies} cv={cv}/>
-                 <div className="row"> 
-                       <div className="col-md-12 more-field">
-                         <button className="more" onClick={()=>setMoreEducation(true)}>
-                            <PlusOutlined /> Education
-                          </button>
-                       </div>
-                 </div>
-              </>
-              )}
-                </>
-
-              ) : (
-                <>
-
-                </>
-
-              )
-            }
- 
+            <AddContact setUser={setUser} user={user} cookies={cookies}/>
+            {user.cv === null ? (
+            <>
+            <AddEducation setUser={setUser} user={user} cookies={cookies}/>
+            </>
+            ):(
+            <>
+            </>
+            )}
           </div>
           <div className="cv-footer">
          

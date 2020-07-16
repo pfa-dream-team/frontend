@@ -1,6 +1,5 @@
 import React,{useState,useEffect}from 'react';
 import "./List-Cv.css"
-import LoadingCv from "../cv/LoadingCv"
 import Cv from "../cv/Cv"
 import {  Link} from "react-router-dom"
 import { LoadingOutlined } from '@ant-design/icons'
@@ -11,6 +10,7 @@ import {fetchCvs} from "../../../services/cv.service"
 
 
 function ListCv({setUser ,user,cookies}) {
+  const user_id = user._id
   const [loading , setLoading] = useState(true)
   const [Cvs ,setCvs] = useState([])
   useEffect(() => {
@@ -38,10 +38,10 @@ function ListCv({setUser ,user,cookies}) {
         <div className="sub-page-title">
           <p>Liste des cv</p>
           <>
-          {user.role === "user" && user.cv === undefined ? (
+          {user.role === "user" && user.cv === null ? (
             <>
             <Link 
-             to={location => ({ ...location, pathname: "/user/add-cv/1" })} > 
+             to={location => ({ ...location, pathname: "/user/add-cv/"+user_id })} > 
                 Ajouter un cv 
                
              </Link>{" "}

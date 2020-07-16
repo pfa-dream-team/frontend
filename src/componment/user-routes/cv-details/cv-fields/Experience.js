@@ -5,7 +5,7 @@ import { MdWork } from "react-icons/md";
 
 
 
-function Experience() {
+function Experience({experience}) {
   return (
     
    <>
@@ -15,61 +15,29 @@ function Experience() {
                     <h3>Experience</h3>
                    </div>
                 </div>
-                <div className="col-lg-12">
-                  <div className="study">
-                    <p><MdWork/> &nbsp; web freelancer</p>
-                     <ul>
+                {experience.map(exp => (    
+                  <>
+                   <div className="col-lg-12">
+                    <div className="study">
+                      <p><MdWork/> &nbsp; {exp.position}</p>
+                       <ul>
                          <li>
-                            Prériode : 2018-2021
+                            Prériode : {exp.start} - {exp.end}
                          </li>
                          <li className="agency-name">
-                             Société : creadevity
+                             Société : {exp.agency}
                          </li>
                          <li className="work-description">
-                         Description du poste :  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                          Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-                           dolor. Cras elementum ultrices diam.
+                         Description du poste : {exp.description}
                          </li>
                      </ul>
                   </div>
                 </div>
-                <div className="col-lg-12">
-                  <div className="study">
-                    <p><MdWork/> &nbsp; grafic designer</p>
-                     <ul>
-                         <li>
-                            Prériode : 2018-2021
-                         </li>
-                         <li className="agency-name">
-                             Société : innova soft
-                         </li>
-                         <li className="work-description">
-                         Description du poste :  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                          Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-                           dolor. Cras elementum ultrices diam.
-                         </li>
-                     </ul>
-                  </div>
+                  
+                  </>
+                 ))}
+               
                 </div>
-                <div className="col-lg-12">
-                  <div className="study">
-                    <p><MdWork/> &nbsp; web freelancer</p>
-                     <ul>
-                         <li>
-                            Prériode : 2018-2021
-                         </li>
-                         <li className="agency-name">
-                             Société : creadevity
-                         </li>
-                         <li className="work-description">
-                         Description du poste :  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-                          Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-                           dolor. Cras elementum ultrices diam.
-                         </li>
-                     </ul>
-                  </div>
-                </div>
-           </div>
    </>
   );
 }

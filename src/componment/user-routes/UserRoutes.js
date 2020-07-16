@@ -52,8 +52,8 @@ function UserRoutes({setUser ,user,cookies}) {
                    <Route  exact path={`${path}/documents`}>
                      <ListDocument setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
-                   <Route  exact path={`${path}/cv/:user_id`} setUser={setUser} user={user} cookies={cookies}>
-                     <CvDetails user={user}/>
+                   <Route  exact path={`${path}/cvs/:cv_id`} >
+                     <CvDetails/>
                    </Route>
                    <Route  exact path={`${path}/add-cv/:user_id`} setUser={setUser} user={user} cookies={cookies}>
                      <AddCv setUser={setUser} user={user} cookies={cookies}/>

@@ -5,7 +5,7 @@ import { MdLocationOn } from "react-icons/md";
 import { FaPhoneAlt,FaLinkedin,FaFacebook } from "react-icons/fa";
 
 
-function Contact({user,cookies,cv}) {
+function Contact({cv}) {
   return (
     
    <>
