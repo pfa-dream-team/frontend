@@ -2,12 +2,9 @@ import React,{useState}from 'react';
 import "./Add-Cv.css"
 import "../cv-details/Cv-Details.css"
 import AddContact from './add-contact/Add-Contact'
-import Contact from "../cv-details/cv-fields/Contact"
 import AddEducation from './add-education/Add-Education'
 import AddExperince from './add-experience/Add-Experience'
-import Education from "../cv-details/cv-fields/Education"
-import {  PlusOutlined } from '@ant-design/icons';
-
+import AddCompetence from "./add-competence/Add-Competence"
 
 
 function AddCv({setUser ,user,cookies}) {
@@ -31,6 +28,8 @@ function AddCv({setUser ,user,cookies}) {
             <AddContact setUser={setUser} user={user} cookies={cookies}/>
             <AddEducation setUser={setUser} user={user} cookies={cookies}/>
             <AddExperince setUser={setUser} user={user} cookies={cookies}/>
+            <AddCompetence setUser={setUser} user={user} cookies={cookies}/>
+
           </div>
           <div className="cv-footer">
          
