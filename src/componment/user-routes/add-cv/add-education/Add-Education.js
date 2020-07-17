@@ -16,7 +16,6 @@ function AddEducation({setUser ,user,cookies}) {
     const [start,setStart] = useState("");
     const [end,setEnd] = useState("");
     const [cv,setCv] = useState(user.cv)
-    const [education ,setEducation] = useState([])
     const [showForm ,setshowForm] = useState(false)
     const layout = {
         labelCol: { span: 24 },
@@ -41,8 +40,10 @@ function AddEducation({setUser ,user,cookies}) {
     const addEducation = async () => {
       const cv_id = user.cv._id
       const result = await AddEdu(cv_id,diploma,institut,start,end)
-      setCv(result)
-      setEducation(result.eductaion)
+      user.cv = result;
+      cookies.set("user",user,{ path: '/',  expires: 0  })
+      setUser(user)
+      setCv(user.cv)
       setshowForm(false)
 
     }   
@@ -56,9 +57,9 @@ function AddEducation({setUser ,user,cookies}) {
                    </div>
                  </div>
                <>
-               {education !== undefined ? 
+               {cv !== null ? 
                (<>
-               {education.map(edu => (
+               {cv.eductaion.map(edu => (
                       <>
                       <div className="col-lg-12">
                         <div className="study">

@@ -36,3 +36,12 @@ export const AddEducation = async (cv_id,diploma,institut,start,end) => {
       return result.data
   
 }
+export const AddExperience = async (cv_id,position,agency,start,end,description) => {
+  console.log("here starts")
+  const result = await Axios.post(
+    "HTTP://localhost:8000/experience/addExperience",{cv_id,position,agency,start,end,description}
+  )
+    console.log("here ends" ,result.data)
+    return result.data
+
+}
