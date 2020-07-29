@@ -7,6 +7,7 @@ import "./UserRoutes.css";
 import Login from "../login-layout/Login"
 import CvDetails from "./cv-details/Cv-Details"
 import AddCv from "./add-cv/Add-Cv"
+import AddDocument from "./add-document/Add-Document"
 
 
 
@@ -58,6 +59,7 @@ function UserRoutes({setUser ,user,cookies}) {
                    <Route  exact path={`${path}/add-cv/:user_id`} setUser={setUser} user={user} cookies={cookies}>
                      <AddCv setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
+                   
                     </>
                </Switch>
           </div>

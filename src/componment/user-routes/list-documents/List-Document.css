@@ -14,3 +14,32 @@
 .error>img{
     width: 15%;
 }
+.add-doc{
+    border: none;
+    background-color: none;
+    text-transform: uppercase;
+    color: #1890ff;
+    text-decoration: none;
+    background-color: transparent;
+    outline: none;
+    cursor: pointer;
+    -webkit-transition: color 0.3s;
+    transition: color 0.3s;
+    -webkit-text-decoration-skip: objects;
+}
+.block-add-doc{
+    width: 99%;
+    margin: 25px auto;
+    border: 1ps dashed rgba(0, 0, 0, 0.6)
+}
+.form{
+    width: 100% !important;
+}
+.flex{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+}
+.flex >button{
+    margin-right: 5px;
+}
