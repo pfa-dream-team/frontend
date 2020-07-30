@@ -35,3 +35,11 @@ const result = await Axios.delete(
 )
 return result.data
 }
+export const allUserDocuments = async (id) => {
+  const result = await Axios.get(
+  "HTTP://localhost:8000/document/allUserDocuments/"+id
+  
+  )
+  console.log(result.data)
+  return result.data
+  }

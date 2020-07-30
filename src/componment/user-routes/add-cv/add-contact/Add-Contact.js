@@ -58,7 +58,7 @@ function AddContact({setUser ,user,cookies}) {
   return (
             <>
              <div className="information row">
-                 {cv === null ? (
+                 {cv === undefined ? (
                     <>
                        <div className="col-md-12">
                    <div className="title">

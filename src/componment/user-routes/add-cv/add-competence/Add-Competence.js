@@ -44,7 +44,7 @@ function AddCompetence({setUser ,user,cookies}) {
                <>
                <div className="col-lg-12">
                 <div className="study row">
-                  {cv !== null ? 
+                  {cv !== undefined ? 
                   (<>
                  {cv.competence.map(com => (
                    <>

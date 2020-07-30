@@ -57,7 +57,7 @@ function AddEducation({setUser ,user,cookies}) {
                    </div>
                  </div>
                <>
-               {cv !== null ? 
+               {cv !== undefined ? 
                (<>
                {cv.eductaion.map(edu => (
                       <>

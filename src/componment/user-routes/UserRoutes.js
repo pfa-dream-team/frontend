@@ -7,7 +7,7 @@ import "./UserRoutes.css";
 import Login from "../login-layout/Login"
 import CvDetails from "./cv-details/Cv-Details"
 import AddCv from "./add-cv/Add-Cv"
-import AddDocument from "./add-document/Add-Document"
+import UserProfil from "./user-profil/User-Profil"
 
 
 
@@ -42,11 +42,9 @@ function UserRoutes({setUser ,user,cookies}) {
              <Switch>
                    <>
                     <Route exact path={`${path}/`}>
-                       <Redirect to={`${path}/homepage`} />
+                       <Redirect to={`${path}/cvs`} />
                    </Route>
-                   <Route  exact path={`${path}/homepage`}>
-                       <MainPage />
-                   </Route>
+                  
                    <Route exact path={`${path}/cvs`}>
                        <ListCv setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
@@ -58,6 +56,9 @@ function UserRoutes({setUser ,user,cookies}) {
                    </Route>
                    <Route  exact path={`${path}/add-cv/:user_id`} setUser={setUser} user={user} cookies={cookies}>
                      <AddCv setUser={setUser} user={user} cookies={cookies}/>
+                   </Route>
+                   <Route  exact path={`${path}/profil/:user_id`} setUser={setUser} user={user} cookies={cookies}>
+                     <UserProfil setUser={setUser} user={user} cookies={cookies}/>
                    </Route>
                    
                     </>

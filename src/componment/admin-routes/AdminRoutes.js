@@ -40,11 +40,9 @@ function AdminRoutes({setUser ,user,cookies}) {
              <Switch>
         <>
         <Route exact path={`${path}/`}>
-            <Redirect to={`${path}/homepage`} />
+            <Redirect to={`${path}/cvs`} />
         </Route>
-        <Route  exact path={`${path}/homepage`}>
-           <MainPage  setUser={setUser} user={user} cookies={cookies}/>
-         </Route>
+       
          <Route exact path={`${path}/cvs`}>
            <ListCv setUser={setUser} user={user} cookies={cookies}/>
          </Route>

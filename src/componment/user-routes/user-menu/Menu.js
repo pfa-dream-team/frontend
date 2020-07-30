@@ -32,19 +32,6 @@ function Menu({setUser ,user,cookies}) {
 
        <div className="collapse navbar-collapse" id="navbarSupportedContent">
          <ul className="navbar-nav mr-auto">
-          <li className="nav-item active">
-            <>
-            
-             <NavLink
-             to={location => ({ ...location, pathname: "/user/homepage" })} 
-             activeClassName="active"
-             isActive={(_, { pathname }) =>
-            pathname.match("/user/homepage") 
-          }>
-               <AiOutlineHome/> Accueil
-             </NavLink>{" "}
-            </>
-          </li>
           <li className="nav-item">
             <>
              <NavLink 
@@ -76,14 +63,14 @@ function Menu({setUser ,user,cookies}) {
            <li className="nav-item">
              <>
              <NavLink 
-             to={location => ({ ...location, pathname: "/user/documents" })} 
+             to={location => ({ ...location, pathname: "/user/profil/"+user._id })} 
              activeClassName="active"
              isActive={(_, { pathname }) =>
-            pathname.match("/user/documents") 
+            pathname.match("/user/profil/"+user._id) 
           }
              >
                 <BsPerson/>
-                Profile
+                Profil
              </NavLink>{" "}
             </>
            </li>

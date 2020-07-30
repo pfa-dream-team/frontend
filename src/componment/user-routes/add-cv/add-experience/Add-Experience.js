@@ -61,7 +61,7 @@ function AddExperience({setUser ,user,cookies}) {
                    </div>
                  </div>
                <>
-               {cv !== null ? 
+               {cv !== undefined ? 
                (<>
                {cv.experience.map(exp => (
                       <>
